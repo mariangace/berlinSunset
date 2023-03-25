@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  background-color: black;
+}
+#container {
+  font-size: 25px;
+}
+
+#canvas1 {
+  background: rgb(226,132,72);
+  background: linear-gradient(0deg, rgba(226,132,72,1) 0%, rgba(28,28,215,1) 100%);
+}
+#character_canvas {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+}
