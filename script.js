@@ -1,7 +1,7 @@
 const canvas = document.getElementById("canvas1");
-const characterCanvas = document.getElementById("character_canvas");
 const ctx = canvas.getContext("2d");
-const characterCtx = characterCanvas.getContext("2d");
+ctx.canvas.width = window.innerWidth;
+ctx.canvas.height = window.innerHeight;
 const CANVAS_WIDTH = (canvas.width = window.innerWidth);
 const CANVAS_HEIGHT = (canvas.height = window.innerHeight - 7);
 let gameSpeed = 1;
@@ -42,21 +42,21 @@ animationState.forEach((state, index) => {
 });
 
 function animateCharacter() {
-  characterCtx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+  //ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
   //To slow animation
   let position =
     Math.floor(gamerFrame / staggerFrames) %
     spriteAnimations[playerState].loc.length;
   let frameX = spriteWidth * position;
   let frameY = spriteAnimations[playerState].loc[position].y;
-  characterCtx.drawImage(
+  ctx.drawImage(
     playerImage,
     frameX,
     frameY,
     spriteWidth,
     spriteHeight,
-    0,
-    110,
+    CANVAS_WIDTH / 2 - spriteHeight,
+    CANVAS_HEIGHT - spriteHeight,
     spriteWidth,
     spriteHeight
   );
@@ -71,7 +71,7 @@ window.addEventListener("load", function () {
       this.x = 0;
       this.y = 0;
       this.width = 2400;
-      this.height = 700;
+      this.height = CANVAS_HEIGHT;
       this.image = image;
       this.speedModifier = speedModifier;
       this.speed = gameSpeed * this.speedModifier;
