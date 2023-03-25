@@ -71,7 +71,7 @@ window.addEventListener("load", function () {
       this.x = 0;
       this.y = 0;
       this.width = 2400;
-      this.height = CANVAS_HEIGHT;
+      this.height = window.innerHeight - 7;
       this.image = image;
       this.speedModifier = speedModifier;
       this.speed = gameSpeed * this.speedModifier;
